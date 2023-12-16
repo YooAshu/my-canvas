@@ -179,43 +179,43 @@ animate()
 
 let canvasArray = [
   {
-    src : "/allcanvas/canvas1/index.html",
+    src : "./allcanvas/canvas1/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas2/index.html",
+    src : "./allcanvas/canvas2/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas3/index.html",
+    src : "./allcanvas/canvas3/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas4/index.html",
+    src : "./allcanvas/canvas4/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas5/index.html",
+    src : "./allcanvas/canvas5/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas6/index.html",
+    src : "./allcanvas/canvas6/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas7/index.html",
+    src : "./allcanvas/canvas7/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas8/index.html",
+    src : "./allcanvas/canvas8/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas9/index.html",
+    src : "./allcanvas/canvas9/index.html",
     des : ""
   },
   {
-    src : "/allcanvas/canvas10/index.html",
+    src : "./allcanvas/canvas10/index.html",
     des : ""
   }
  
