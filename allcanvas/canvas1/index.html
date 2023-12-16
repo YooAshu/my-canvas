@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Canvas</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="custom">
+    <div id="custom1" style="display: flex;flex-direction: column;">
+      <label for="shapeselector">Choose a shape:</label>
+      <select id="shapeselector">
+        <option value="circle">circle</option>
+        <option value="heart">heart</option>
+        <option value="emoji">emojis</option>
+        <option value="bubble">bubble</option>
+        <option value="square1">square stroke</option>
+        <option value="square2">square fill</option>
+      </select>
+    </div>
+    <div id="custom2">
+      <input type="checkbox" id="wantlines">
+      <label for="wantlines"> want connnecting lines</label><br>
+    </div>
+    <div id="custom3">
+      <label for="slider">intensity:</label><br>
+      <input type="range" min="1" max="500" value="200" id="slider">
+    </div>
+    <div id="custom4">
+      <input type="checkbox" id="mousehover">
+        <label for="mousehover">mousehover effect</label><br>
+        <input type="checkbox" id="randomparticles">
+        <label for="randomparticles">random particles</label><br>
+        <input type="checkbox" id="inflate">
+        <label for="inflate">inflate particles</label><br>
+    </div>
+    <div id="custom5">
+      <label for="bgcolorselector">Select background color:</label>
+      <input type="color" id="bgcolorselector" name="bgcolorselector" value="#000000"><br><br>
+    </div>
+    <div id="custom6">
+      <label for="particlecolorselector">Select particle color:</label>
+      <input type="color" id="particlecolorselector" name="particlecolorselector" value="#ffffff"><br><br>
+    </div>
+    <div id="custom7" style="display: flex;flex-direction: column;">
+      <label for="colorgradientselector">Choose color gradient:</label>
+      <select id="colorgradientselector" data-grad="" >
+        <option value="" disabled selected>Select your option</option>
+        <option value="allcolor" >all colors</option>
+        <option value="randomcolor" >random colors</option>
+        <option value="grad1" >gradient 1</option>
+        <option value="grad2" >gradient 2</option>
+        <option value="grad3" >gradient 3</option>
+        <option value="grad4" >gradient 4</option>
+      </select>
+    </div>
+
+
+  </div>
+  <canvas id="canvas"></canvas>
+  <script src="script.js"></script>
+
+
+</body>
+<!-- onchange="selectedshape()" -->
+
+</html>

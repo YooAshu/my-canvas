@@ -1,0 +1,80 @@
+body{
+  background-color: black;
+}
+canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+font-family: 'VT323', monospace;
+font-family: 'Yeseva One', serif;
+}
+
+header > h1{
+  font-size: 12vh;
+  color: white;
+  text-shadow: 0 0 16px white;
+}
+
+header{
+  width: 100%;
+  height: max-content;
+  padding: 5vh;
+  text-align: center;
+}
+#canvasContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#canvasContainer div{
+  margin: 2vw;
+  /* border: 2px solid white; */
+  border-radius: 20px;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  width: 404px;
+  height: 254px;
+  place-content: center;
+  place-items: center;
+  border: 1px solid white;
+}
+
+
+
+
+
+.iframe:hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(30px);
+  z-index: 3;
+}
+
+
+
+/* #canvasContainer div:hover{
+  box-shadow: 0 0 20px 1px white;
+} */
+
+#canvasContainer > div > iframe {
+  border: none;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 4;
+}
