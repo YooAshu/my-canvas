@@ -158,6 +158,14 @@ window.addEventListener('mousemove', event => {
   mouse.x = event.x
   mouse.y = event.y
 })
+window.addEventListener('touchmove', event => {
+  mouse.x = event.touches[0].clientX
+  mouse.y = event.touches[0].clientY
+})
+window.addEventListener('touchend', event => {
+  mouse.x = undefined
+  mouse.y = undefined
+})
 
 class particle {
   constructor(x, y, color) {

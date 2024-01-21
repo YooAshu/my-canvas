@@ -42,6 +42,7 @@ let intensity = 200
 if (window.innerWidth > window.innerHeight && window.innerWidth <= 400) {
   // it is in iframe of my canvas websiste
   document.getElementById('custom').style.display = 'none';
+  document.querySelector('.settings').style.display = 'none';
   document.getElementsByTagName('body')[0].style.backgroundColor = 'black'
   intensity = 50
 
@@ -51,7 +52,7 @@ else {     //it is not in iframe
 }
 
 
-slider.oninput = function() {
+slider.oninput = function () {
   intensity = document.getElementById('slider').value
   if (randomparticles.checked) {
     particlesarray = []
@@ -60,12 +61,12 @@ slider.oninput = function() {
   }
 }
 
-bgcolorselector.addEventListener('input', function() {
+bgcolorselector.addEventListener('input', function () {
   bgcolor = bgcolorselector.value
   document.getElementById('canvas').style.backgroundColor = bgcolor
 })
 
-particlecolorselector.addEventListener('input', function() {
+particlecolorselector.addEventListener('input', function () {
   particlecolor = particlecolorselector.value
   colorgradientselector.value = ""
   for (i = 0; i < particlesarray.length; i++) {
@@ -73,7 +74,7 @@ particlecolorselector.addEventListener('input', function() {
   }
 })
 
-shapeselector.addEventListener('change', function() {
+shapeselector.addEventListener('change', function () {
   if (shapeselector.value == 'bubble') {
     for (i = 0; i < particlesarray.length; i++) {
       particlesarray[i].color = '#4f4f4f'
@@ -84,7 +85,7 @@ shapeselector.addEventListener('change', function() {
 })
 
 
-colorgradientselector.addEventListener('change', function() {
+colorgradientselector.addEventListener('change', function () {
   gradapply()
 })
 
@@ -93,22 +94,36 @@ colorgradientselector.addEventListener('change', function() {
 
 
 
-window.addEventListener('mousemove', e => {
+window.addEventListener("pointermove", e => {
   if (randomparticles.checked && mouse.pressed) {
     mouse.x = e.x
     mouse.y = e.y
   }
 })
-window.addEventListener('mousedown', e => {
+// window.addEventListener('mousemove', e => {
+//   if (randomparticles.checked && mouse.pressed) {
+//     mouse.x = e.x
+//     mouse.y = e.y
+//   }
+// })
+window.addEventListener("pointerdown", e => {
   mouse.x = e.x
   mouse.y = e.y
   mouse.pressed = true
 })
-window.addEventListener('mouseup', () => {
+// window.addEventListener('mousedown', e => {
+//   mouse.x = e.x
+//   mouse.y = e.y
+//   mouse.pressed = true
+// })
+window.addEventListener("pointerup", () => {
   mouse.pressed = false
 })
+// window.addEventListener('mouseup', () => {
+//   mouse.pressed = false
+// })
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
 })
@@ -116,12 +131,12 @@ window.addEventListener('resize', function() {
 
 
 function init() {
-  let x,y
+  let x, y
 
   if (colorgradientselector.value == 'allcolor') {
     particlecolor = `hsl(${hue},100%,25%)`
   }
-  
+
   //mouse-hover
   if (mousehover.checked) {
 
@@ -131,7 +146,7 @@ function init() {
       if (colorgradientselector.value == 'randomcolor') {
         particlecolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
       }
-      particlesarray.push(new particle(x,y,particlecolor))
+      particlesarray.push(new particle(x, y, particlecolor))
     }
   }
 
@@ -143,7 +158,7 @@ function init() {
       if (colorgradientselector.value == 'randomcolor') {
         particlecolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
       }
-      particlesarray.push(new particle(x,y,particlecolor))
+      particlesarray.push(new particle(x, y, particlecolor))
     }
   }
 
@@ -152,7 +167,7 @@ function init() {
 
 
 class particle {
-  constructor(x,y,color) {
+  constructor(x, y, color) {
     this.x = x
     this.y = y
     this.dx = undefined
@@ -322,7 +337,7 @@ class particle {
 }
 
 
-randomparticles.onclick = function() {
+randomparticles.onclick = function () {
   mousehover.checked = false
   inflateparticles.disabled = false
   slider.max = 500
@@ -338,7 +353,7 @@ let clicked = {
   x: undefined,
   y: undefined,
 }
-window.addEventListener('mousedown', e => {
+window.addEventListener("pointerdown", e => {
   if (mousehover.checked) {
     clicked.x = e.x
     clicked.y = e.y
@@ -349,6 +364,17 @@ window.addEventListener('mousedown', e => {
   }
 
 })
+// window.addEventListener('mousedown', e => {
+//   if (mousehover.checked) {
+//     clicked.x = e.x
+//     clicked.y = e.y
+
+//     for (let i = 0; i < intensity; i++) {
+//       fireworks.push(new firework())
+//     }
+//   }
+
+// })
 class firework extends particle {
   constructor() {
     super()
@@ -384,7 +410,7 @@ class firework extends particle {
 
 }
 
-mousehover.onclick = function() {
+mousehover.onclick = function () {
   randomparticles.checked = false
   inflateparticles.disabled = true
   inflateparticles.checked = false
@@ -397,7 +423,22 @@ mousehover.onclick = function() {
 
 
 
-window.addEventListener('mousemove', function(event) {
+window.addEventListener("touchmove", function (event) {
+  if (mousehover.checked) {
+
+    init()
+    mouse.x = event.touches[0].clientX
+    mouse.y = event.touches[0].clientY
+    // console.log(event.touches[0].clientX)
+    // console.log(event.x)
+  }
+  if (inflateparticles.checked) {
+    mouse.x = event.touches[0].clientX
+    mouse.y = event.touches[0].clientY
+  }
+
+})
+window.addEventListener('mousemove', function (event) {
   if (mousehover.checked) {
 
     init()
@@ -614,3 +655,6 @@ function linescolorBasedOnBgColor(bgColor, lightColor, darkColor) {
 
 
 
+document.querySelector(".settings").addEventListener("click", () => {
+  document.querySelector("#custom").classList.toggle("vanish")
+})

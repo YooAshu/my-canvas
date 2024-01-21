@@ -19,7 +19,7 @@ font-family: 'Yeseva One', serif;
 }
 
 header > h1{
-  font-size: 12vh;
+  font-size: 12vw;
   color: white;
   text-shadow: 0 0 16px white;
 }
@@ -43,8 +43,8 @@ header{
   color: #fff;
   cursor: pointer;
   display: flex;
-  width: 404px;
-  height: 254px;
+  /* width: 404px; */
+  /* height: 254px; */
   place-content: center;
   place-items: center;
   border: 1px solid white;
@@ -77,4 +77,12 @@ header{
   border-radius: 20px;
   pointer-events: none;
   z-index: 4;
+}
+
+
+@media screen and (max-width:500px) {
+  #canvasContainer div{
+    margin-bottom: 30px;
+  }
+  
 }

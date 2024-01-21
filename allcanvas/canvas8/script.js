@@ -121,6 +121,16 @@ window.addEventListener("mousemove", (e) => {
     mouse.x = e.x
     mouse.y = e.y
 })
+window.addEventListener("touchmove", (e) => {
+
+    mouse.x = e.touches[0].clientX
+    mouse.y = e.touches[0].clientY
+})
+window.addEventListener("touchend", (e) => {
+
+    mouse.x = undefined
+    mouse.y = undefined
+})
 
 
 animate()

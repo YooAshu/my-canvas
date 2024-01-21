@@ -13,18 +13,18 @@ let area = {
 let padding = 2
 let margin = 20
 let linelength = 20
-let p = new Promise((resolve,reject)=>{
+let p = new Promise((resolve, reject) => {
   window.addEventListener('load', function () {
 
     calculatingLines()
-    
+
   })
   resolve('Success!');
-}) 
+})
 
-p.then((value)=>{
-  let iframeTag,div
-  for(let i =0;i<canvasArray.length;i++){
+p.then((value) => {
+  let iframeTag, div
+  for (let i = 0; i < canvasArray.length; i++) {
     iframeTag = document.createElement('iframe')
     div = document.createElement('div')
 
@@ -35,21 +35,32 @@ p.then((value)=>{
     div.append(iframeTag)
     canvasContainer.append(div)
   }
-}).then(()=>{
+}).then(() => {
   let iframes = document.querySelectorAll('.iframe')
-  
+
   iframes.forEach(function (iframe) {
     iframe.addEventListener('click', function () {
-        // Get the source URL of the clicked iframe
-        var iframeSrc = iframe.childNodes[0].attributes[0].value
-        // Open the source URL in a new tab
-        window.open(iframeSrc, '_blank');
+      // Get the source URL of the clicked iframe
+      var iframeSrc = iframe.childNodes[0].attributes[0].value
+      // Open the source URL in a new tab
+      window.open(iframeSrc, '_blank');
     });
 
-   
-    
-});
+
+
+  });
 })
+  .then(() => {
+    if (window.innerWidth <= 450) {
+
+      document.querySelectorAll("iframe").forEach((frame) => {
+        frame.width = 80 * window.innerWidth / 100
+        // console.log(frame.width, window.innerWidth)
+        frame.height = frame.width / 1.6
+      })
+
+    }
+  })
 
 function calculatingLines() {
 
@@ -85,8 +96,8 @@ clicked = {
   y: undefined
 }
 window.addEventListener('mousemove', (e) => {
-  mouse.x = e.pageX
-  mouse.y = e.pageY
+  mouse.x = e.x
+  mouse.y = e.y
 })
 
 
@@ -179,44 +190,58 @@ animate()
 
 let canvasArray = [
   {
-    src : "./allcanvas/canvas1/index.html",
-    des : ""
+    src: "./allcanvas/canvas1/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas2/index.html",
-    des : ""
+    src: "./allcanvas/canvas2/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas3/index.html",
-    des : ""
+    src: "./allcanvas/canvas3/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas4/index.html",
-    des : ""
+    src: "./allcanvas/canvas4/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas5/index.html",
-    des : ""
+    src: "./allcanvas/canvas5/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas6/index.html",
-    des : ""
+    src: "./allcanvas/canvas6/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas7/index.html",
-    des : ""
+    src: "./allcanvas/canvas7/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas8/index.html",
-    des : ""
+    src: "./allcanvas/canvas8/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas9/index.html",
-    des : ""
+    src: "./allcanvas/canvas9/index.html",
+    des: ""
   },
   {
-    src : "./allcanvas/canvas10/index.html",
-    des : ""
+    src: "./allcanvas/canvas10/index.html",
+    des: ""
   }
- 
+
 ]
+
+window.addEventListener("resize", function () {
+
+  if (window.innerWidth <= 450) {
+
+    console.log(1)
+    document.querySelectorAll("iframe").forEach((frame) => {
+      frame.width = 80 * window.innerWidth / 100
+      // console.log(frame.width, window.innerWidth)
+      frame.height = frame.width / 1.6
+    })
+
+  }
+})

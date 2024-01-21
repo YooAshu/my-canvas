@@ -73,12 +73,12 @@ function scanImage() {
 function animate() {
   // if (!resizing) {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    for (i = 0; i < particlesarray.length; i++) {
-      particlesarray[i].update()
-      particlesarray[i].draw()
-    }
-    window.requestAnimationFrame(animate)
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  for (i = 0; i < particlesarray.length; i++) {
+    particlesarray[i].update()
+    particlesarray[i].draw()
+  }
+  window.requestAnimationFrame(animate)
   // }
 }
 animate()
@@ -136,8 +136,8 @@ class particle {
     this.originx = x + imagex
     this.originy = y + imagey
 
-    this.x =  Math.random() * canvas.width 
-    this.y =  Math.random() * canvas.height 
+    this.x = Math.random() * canvas.width
+    this.y = Math.random() * canvas.height
     // this.x = !resizing ? Math.random() * canvas.width : this.originx
     // this.y = !resizing ? Math.random() * canvas.height : this.originy
     this.color = `rgb(${red},${green},${blue})`
@@ -156,6 +156,15 @@ class particle {
     window.addEventListener('mousemove', event => {
       this.mouse.x = event.x
       this.mouse.y = event.y
+    })
+    window.addEventListener('touchmove', event => {
+      this.mouse.x = event.touches[0].clientX
+      this.mouse.y = event.touches[0].clientY
+    })
+    window.addEventListener("touchend", event => {
+      this.mouse.x = undefined
+      this.mouse.y = undefined
+      
     })
 
   }

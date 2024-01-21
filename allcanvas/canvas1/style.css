@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-body,html{
+body,
+html {
   background-color: black;
 }
 
-#canvas{
-  
+#canvas {
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -14,22 +15,44 @@ body,html{
   left: 0;
   position: absolute;
   background-color: black;
-  
+
 }
-#custom{
+
+#custom {
   position: absolute;
   top: 15px;
   right: 15px;
   display: flex;
   flex-direction: column;
-  z-index:1;
+  z-index: 1;
   font-family: 'Lilita One', cursive;
   -webkit-text-stroke: .5px black;
 }
-#custom label{
-  color:white;
+
+#custom label {
+  color: white;
 }
-*{
-  
-        user-select: none;
+
+* {
+
+  user-select: none;
+}
+
+body {
+  overscroll-behavior: contain;
+}
+
+.settings {
+  font-family: sans-serif;
+  padding: 2px;
+  z-index: 2;
+  color: black;
+  position: relative;
+  text-align: end;
+  background: white;
+  width: max-content;
+  border: 1px solid black;  
+}
+#custom.vanish{
+  display: none;
 }
