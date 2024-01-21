@@ -21,6 +21,13 @@ window.addEventListener('touchmove', (e) => {
     mouse.x = e.touches[0].clientX
     mouse.y = e.touches[0].clientY
 })
+
+
+window.addEventListener('touchend', (e) => {
+    mouse.x = undefined 
+    mouse.y = undefined 
+})
+
 window.addEventListener('mouseout', function () {
     mouse.x = undefined
     mouse.y = undefined
