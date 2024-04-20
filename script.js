@@ -228,6 +228,10 @@ let canvasArray = [
   {
     src: "./allcanvas/canvas10/index.html",
     des: ""
+  },
+  {
+    src: "./allcanvas/canvas11/index.html",
+    des: ""
   }
 
 ]
